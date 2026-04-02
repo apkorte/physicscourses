@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A-level Physics &amp; Maths Revision Courses | physicscourses.co.uk</title>
+  <meta name="description" content="Online A-level Physics, Maths and Further Maths intensive revision courses. Small groups, expert tuition, Easter &amp; summer. All major UK exam boards.">
+  <link rel="canonical" href="https://physicscourses.co.uk/">
+  <link rel="icon" href="favicon.ico">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://physicscourses.co.uk/">
+  <meta property="og:title" content="A-level Physics &amp; Maths Revision Courses">
+  <meta property="og:description" content="Online intensive revision in Physics, Maths and Further Maths. Small groups. Easter &amp; summer. Taught by an Oxford and Imperial-trained physicist.">
+  <meta property="og:site_name" content="Physics Courses">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "name": "Dr Anthony Korte",
+        "jobTitle": "A-level Physics and Maths Tutor",
+        "alumniOf": [
+          {"@type": "CollegeOrUniversity", "name": "University of Oxford"},
+          {"@type": "CollegeOrUniversity", "name": "Imperial College London"}
+        ],
+        "hasCredential": [
+          "First Class degree in Physics, University of Oxford",
+          "PhD in Theoretical Physics, Imperial College London"
+        ],
+        "url": "https://physicsandmathscourses.com"
+      },
+      {
+        "@type": "Course",
+        "name": "A-level Physics Revision Course",
+        "description": "Intensive online A-level Physics revision course. Small group tuition covering all major UK exam boards.",
+        "provider": {
+          "@type": "Person",
+          "name": "Dr Anthony Korte"
+        },
+        "courseMode": "online",
+        "educationalLevel": "A-level",
+        "url": "https://physicsandmathscourses.com"
+      },
+      {
+        "@type": "Course",
+        "name": "A-level Maths Revision Course",
+        "description": "Intensive online A-level Mathematics revision course. Small group tuition covering all major UK exam boards.",
+        "provider": {
+          "@type": "Person",
+          "name": "Dr Anthony Korte"
+        },
+        "courseMode": "online",
+        "educationalLevel": "A-level",
+        "url": "https://physicsandmathscourses.com"
+      },
+      {
+        "@type": "Course",
+        "name": "A-level Further Maths Revision Course",
+        "description": "Intensive online A-level Further Mathematics revision course. Small group tuition covering all major UK exam boards.",
+        "provider": {
+          "@type": "Person",
+          "name": "Dr Anthony Korte"
+        },
+        "courseMode": "online",
+        "educationalLevel": "A-level",
+        "url": "https://physicsandmathscourses.com"
+      },
+      {
+        "@type": "EducationalOrganization",
+        "name": "Physics and Maths Courses",
+        "url": "https://physicscourses.co.uk",
+        "sameAs": "https://physicsandmathscourses.com"
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Design tokens ── */
+    :root {
+      --brand:        #0077bb;
+      --brand-dark:   #005d94;
+      --ink:          #1a1a2e;
+      --ink-mid:      #3d3d58;
+      --ink-muted:    #6b6b88;
+      --rule:         #e0e0ec;
+      --bg:           #ffffff;
+      --bg-wash:      #f4f5f9;
+      --font:         "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --prose:        680px;
+      --wide:         980px;
+    }
+
+    html {
+      font-size: 18px;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--font);
+      font-weight: 400;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Animations ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0);    }
+    }
+
+    .a1 { animation: fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) both; animation-delay: 0.05s; }
+    .a2 { animation: fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) both; animation-delay: 0.2s;  }
+    .a3 { animation: fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) both; animation-delay: 0.35s; }
+    .a4 { animation: fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) both; animation-delay: 0.48s; }
+
+    /* ── Layout ── */
+    .wrap {
+      width: 100%;
+      max-width: var(--prose);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .wrap--wide {
+      max-width: var(--wide);
+    }
+
+    /* ── Brand rule ── */
+    .brand-bar {
+      height: 4px;
+      background: var(--brand);
+    }
+
+    /* ────────────────────────────────────────
+       HEADER
+    ──────────────────────────────────────── */
+    header {
+      background: var(--bg);
+      border-bottom: 1px solid var(--rule);
+      padding: 1rem 0;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .site-name {
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--brand);
+      text-decoration: none;
+    }
+
+    .site-name:hover { color: var(--brand-dark); }
+
+    .header-book {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--brand);
+      text-decoration: none;
+      border: 1.5px solid var(--brand);
+      padding: 0.32rem 0.85rem;
+      border-radius: 2px;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .header-book:hover {
+      background: var(--brand);
+      color: #fff;
+    }
+
+    /* ────────────────────────────────────────
+       HERO
+    ──────────────────────────────────────── */
+    .hero {
+      background-image:
+        linear-gradient(rgba(10, 20, 50, 0.68), rgba(10, 20, 50, 0.68)),
+        url('hero.jpeg');
+      background-size: cover;
+      background-position: center;
+      min-height: 60vh;
+      padding: 5.5rem 0 5rem;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero > .wrap {
+      position: relative;
+      width: 100%;
+    }
+
+    .hero__kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 1.4rem;
+    }
+
+    .hero__kicker::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: rgba(255,255,255,0.45);
+      flex-shrink: 0;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.15rem, 6.5vw, 3.25rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin-bottom: 1.3rem;
+      max-width: 600px;
+    }
+
+    .hero h1 .dim {
+      color: rgba(255,255,255,0.6);
+      font-weight: 700;
+    }
+
+    .hero__sub {
+      font-size: 1rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.72;
+      max-width: 460px;
+      margin-bottom: 2.6rem;
+    }
+
+    /* Inverted white button in hero */
+    .btn-hero {
+      display: inline-block;
+      background: #fff;
+      color: var(--brand);
+      font-family: var(--font);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 0.85rem 2rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s, transform 0.12s;
+    }
+
+    .btn-hero:hover {
+      background: var(--ink);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .btn-hero:focus-visible {
+      outline: 3px solid rgba(255,255,255,0.7);
+      outline-offset: 3px;
+    }
+
+    /* ────────────────────────────────────────
+       CREDENTIALS
+    ──────────────────────────────────────── */
+    .credentials {
+      background: var(--ink);
+      padding: 4.5rem 0;
+    }
+
+    .credentials .label {
+      color: var(--brand);
+    }
+
+    .credentials h2 {
+      font-size: clamp(1.6rem, 4vw, 2.1rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      color: #fff;
+      margin-bottom: 1.75rem;
+    }
+
+    .cred-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-bottom: 2rem;
+    }
+
+    .cred-list li {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      align-items: start;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.55);
+    }
+
+    .cred-list li::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 2px;
+      background: var(--brand);
+      margin-top: 0.62em;
+      flex-shrink: 0;
+    }
+
+    .cred-list strong {
+      display: block;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .cred-body {
+      font-size: 0.93rem;
+      color: rgba(255,255,255,0.48);
+      line-height: 1.85;
+      max-width: 560px;
+      padding-top: 1.75rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* ────────────────────────────────────────
+       COURSE DETAILS
+    ──────────────────────────────────────── */
+    .courses {
+      background: var(--bg-wash);
+      padding: 4.5rem 0;
+    }
+
+    .courses h2 {
+      color: var(--ink);
+      margin-bottom: 2rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    }
+
+    .card {
+      background: var(--bg);
+      padding: 1.75rem 1.6rem;
+      position: relative;
+      transition: background 0.2s;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--brand);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card:hover {
+      background: #fafbff;
+    }
+
+    .card-label {
+      display: block;
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--brand);
+      margin-bottom: 0.65rem;
+    }
+
+    .card-value {
+      font-size: 0.92rem;
+      color: var(--ink-mid);
+      line-height: 1.72;
+    }
+
+    .board-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 0.1rem;
+    }
+
+    .board-pill {
+      display: inline-flex;
+      align-items: center;
+      border: 1.5px solid var(--brand);
+      color: var(--brand);
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    /* ────────────────────────────────────────
+       SECONDARY CTA
+    ──────────────────────────────────────── */
+    .cta-band {
+      background-color: var(--brand);
+      background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 52px 52px;
+      padding: 3.25rem 0;
+    }
+
+    .cta-band__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .cta-band__copy {
+      font-size: 0.93rem;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.6;
+    }
+
+    .cta-band__copy strong {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.015em;
+      margin-bottom: 0.2rem;
+    }
+
+    .btn-outline {
+      display: inline-block;
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.65);
+      font-family: var(--font);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 0.8rem 1.65rem;
+      border-radius: 2px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .btn-outline:hover {
+      border-color: #fff;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .btn-outline:focus-visible {
+      outline: 3px solid rgba(255,255,255,0.5);
+      outline-offset: 3px;
+    }
+
+    /* ────────────────────────────────────────
+       FOOTER
+    ──────────────────────────────────────── */
+    footer {
+      background: var(--ink);
+      padding: 1.4rem 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .footer-inner a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .footer-inner a:hover {
+      color: rgba(255,255,255,0.85);
+    }
+
+    /* ────────────────────────────────────────
+       SHARED: section label
+    ──────────────────────────────────────── */
+    .label {
+      display: block;
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+
+    .courses .label {
+      color: var(--brand);
+    }
+
+    /* shared h2 */
+    h2 {
+      font-size: clamp(1.5rem, 3.5vw, 1.9rem);
+      font-weight: 800;
+      letter-spacing: -0.022em;
+      line-height: 1.15;
+    }
+
+    /* ────────────────────────────────────────
+       RESPONSIVE
+    ──────────────────────────────────────── */
+    @media (max-width: 600px) {
+      html { font-size: 16px; }
+
+      .hero { padding: 3.75rem 0 3.25rem; }
+      .hero::after { display: none; }
+
+      .card-grid { grid-template-columns: 1fr; }
+
+      .cta-band__inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .header-book { display: none; }
+    }
+
+    @media (max-width: 380px) {
+      .hero h1 { letter-spacing: -0.02em; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="brand-bar" aria-hidden="true"></div>
+
+  <header>
+    <div class="wrap wrap--wide">
+      <div class="header-inner">
+        <a class="site-name" href="https://physicscourses.co.uk/">Physics Courses</a>
+        <a class="header-book" href="https://physicsandmathscourses.com" target="_blank" rel="noopener noreferrer">Book a place</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ── Hero ── -->
+    <section class="hero">
+      <div class="wrap">
+        <p class="hero__kicker a1">Online &middot; Small Groups &middot; UK A-level</p>
+        <h1 class="a2">
+          A-level Physics<br>
+          <span class="dim">&amp; Maths</span><br>
+          Revision Courses
+        </h1>
+        <p class="hero__sub a3">Intensive online courses in Physics, Maths and Further Maths. Expert tuition from an Oxford and Imperial-trained physicist, in small groups.</p>
+        <a class="btn-hero a4" href="https://physicsandmathscourses.com" target="_blank" rel="noopener noreferrer">View Courses &amp; Book</a>
+      </div>
+    </section>
+
+    <!-- ── Credentials ── -->
+    <section class="credentials">
+      <div class="wrap">
+        <span class="label" style="color: var(--brand);">About the tutor</span>
+        <h2>Dr&nbsp;Anthony Korte</h2>
+        <ul class="cred-list">
+          <li>
+            <span><strong>First Class degree in Physics</strong>University of Oxford</span>
+          </li>
+          <li>
+            <span><strong>PhD in Theoretical Physics</strong>Imperial College London</span>
+          </li>
+        </ul>
+        <p class="cred-body">
+          Dr Korte brings first-hand experience of physics and mathematics at the highest academic level. Courses are built around genuine subject understanding &mdash; not just exam technique &mdash; giving students the depth of knowledge to tackle any question with confidence.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── Course details ── -->
+    <section class="courses">
+      <div class="wrap">
+        <span class="label">Course details</span>
+        <h2>Intensive Revision Courses</h2>
+        <div class="card-grid">
+          <div class="card">
+            <span class="card-label">Subjects</span>
+            <p class="card-value">
+              A-level Physics<br>
+              A-level Mathematics<br>
+              A-level Further Mathematics
+            </p>
+          </div>
+          <div class="card">
+            <span class="card-label">Format</span>
+            <p class="card-value">
+              Small group tuition<br>
+              Online via Zoom
+            </p>
+          </div>
+          <div class="card">
+            <span class="card-label">When</span>
+            <p class="card-value">
+              Easter intensive<br>
+              Summer intensive<br>
+              Christmas intensive
+            </p>
+          </div>
+          <div class="card">
+            <span class="card-label">Physics exam boards</span>
+            <div class="board-list">
+              <span class="board-pill">AQA</span>
+              <span class="board-pill">OCR A</span>
+              <span class="board-pill">OCR B</span>
+              <span class="board-pill">Edexcel</span>
+              <span class="board-pill">WJEC Eduqas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Secondary CTA ── -->
+  <div class="cta-band">
+    <div class="wrap wrap--wide">
+      <div class="cta-band__inner">
+        <p class="cta-band__copy">
+          <strong>Ready to book a place?</strong>
+          Full details, course dates and pricing at the main site.
+        </p>
+        <a class="btn-outline" href="https://physicsandmathscourses.com" target="_blank" rel="noopener noreferrer">See dates, prices &amp; booking &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="wrap wrap--wide">
+      <div class="footer-inner">
+        <span>&copy; 2026 Physics Courses &mdash; <a href="https://physicsandmathscourses.com" target="_blank" rel="noopener noreferrer">physicsandmathscourses.com</a></span>
+        <a href="https://physicsandmathscourses.com/our-services/privacy-policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
