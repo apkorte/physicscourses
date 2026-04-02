@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://physicscourses.co.uk/sitemap.xml
