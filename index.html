@@ -550,8 +550,6 @@
        RESPONSIVE
     ──────────────────────────────────────── */
     @media (max-width: 600px) {
-      html { font-size: 16px; }
-
       .hero { padding: 3.75rem 0 3.25rem; }
       .hero::after { display: none; }
 
@@ -567,6 +565,21 @@
 
     @media (max-width: 380px) {
       .hero h1 { letter-spacing: -0.02em; }
+    }
+
+    @media screen and (orientation: portrait) and (max-width: 500px) {
+      html {
+        font-size: 18px;
+      }
+    }
+
+    @media screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 768px) {
+      body {
+        font-size: 20px;
+      }
+      p, li, dd, dt {
+        font-size: 20px !important;
+      }
     }
   </style>
 </head>
