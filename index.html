@@ -126,6 +126,7 @@
       --bg:           #ffffff;
       --bg-wash:      #f4f5f9;
       --font:         "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --hero-rule:    rgba(255,255,255,0.65);
       --prose:        680px;
       --wide:         980px;
     }
@@ -256,8 +257,8 @@
       content: '';
       display: block;
       width: 24px;
-      height: 0;
-      border-top: 2px solid currentColor;
+      height: 2px;
+      background: var(--hero-rule);
       flex-shrink: 0;
     }
 
