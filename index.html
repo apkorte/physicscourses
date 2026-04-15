@@ -728,13 +728,34 @@
     /* ────────────────────────────────────────
        COURSES DETAIL
     ──────────────────────────────────────── */
-    .courses-detail {
-      font-size: 18px;
-      color: var(--ink-mid);
-      line-height: 1.7;
+    .courses-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
       margin-top: 1.75rem;
       padding-top: 1.75rem;
       border-top: 1px solid var(--rule);
+    }
+
+    .courses-list li {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      align-items: start;
+      gap: 0.75rem;
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--ink-mid);
+    }
+
+    .courses-list li::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 2px;
+      background: var(--brand);
+      margin-top: 0.62em;
+      flex-shrink: 0;
     }
 
     /* ────────────────────────────────────────
@@ -906,7 +927,12 @@
             </div>
           </div>
         </div>
-        <p class="courses-detail">Courses cover the complete A-level Physics syllabus. Year&nbsp;1 topics include mechanics, electricity, waves and quantum physics. Year&nbsp;2 extends to gravitational and electric fields, capacitors, oscillations, thermal physics, radioactivity and nuclear physics. All students receive downloadable worksheets, fully worked solutions and exam-style questions matched to their specific exam board.</p>
+        <ul class="courses-list">
+          <li><span>Courses cover the complete A-level Physics syllabus.</span></li>
+          <li><span>Year&nbsp;1 topics include mechanics, electricity, waves and quantum physics.</span></li>
+          <li><span>Year&nbsp;2 extends to gravitational and electric fields, capacitors, oscillations, thermal physics, radioactivity and nuclear physics.</span></li>
+          <li><span>All students receive downloadable worksheets, fully worked solutions and exam questions matched to their specific exam board.</span></li>
+        </ul>
       </div>
     </section>
 
