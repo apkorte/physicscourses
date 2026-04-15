@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Online A-level Physics Revision Courses | physicscourses.co.uk</title>
-  <meta name="description" content="Intensive online A-level Physics revision and exam preparation. Small group tuition from an Oxford and Imperial-trained physicist. Easter, Christmas &amp; summer. All major UK exam boards.">
+  <meta name="description" content="Online A-level Physics revision courses. Small groups taught by Dr Anthony Korte — Oxford First, Imperial PhD. Easter, Christmas and summer.">
   <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#0077bb">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <link rel="canonical" href="https://physicscourses.co.uk/">
   <link rel="sitemap" type="application/xml" href="/sitemap.xml">
   <link rel="icon" href="favicon.ico">
-  <link rel="preload" as="image" href="hero.jpeg">
+  <link rel="preload" as="image" href="hero.jpeg" fetchpriority="high">
+  <meta name="indexnow-key" content="4da646000f6a4c2c91a077fb3311f2ad">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_GB">
@@ -20,12 +23,15 @@
   <meta property="og:image" content="https://physicsandmathscourses.com/images/anthony-korte.jpg">
   <meta property="og:image:secure_url" content="https://physicsandmathscourses.com/images/anthony-korte.jpg">
   <meta property="og:image:alt" content="Dr Anthony Korte - A-level Physics Tutor">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="800">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@PhysMathCourses">
   <meta name="twitter:title" content="Online A-level Physics Revision Courses">
   <meta name="twitter:description" content="Expert online A-level Physics revision. Small groups. Easter, Christmas &amp; summer intensives. Taught by Dr Anthony Korte, Oxford First and Imperial College PhD.">
   <meta name="twitter:image" content="https://physicsandmathscourses.com/images/anthony-korte.jpg">
+  <meta name="twitter:image:alt" content="Dr Anthony Korte - A-level Physics Tutor">
 
   <script type="application/ld+json">
   {
@@ -33,9 +39,12 @@
     "@graph": [
       {
         "@type": "WebSite",
+        "@id": "https://physicscourses.co.uk/#website",
         "url": "https://physicscourses.co.uk/",
         "name": "Physics Courses",
-        "description": "Online A-level Physics revision and exam preparation courses. Small groups. Easter, Christmas and summer intensives."
+        "description": "Online A-level Physics revision and exam preparation courses. Small groups. Easter, Christmas and summer intensives.",
+        "datePublished": "2026-04-15",
+        "dateModified": "2026-04-15"
       },
       {
         "@type": "Person",
@@ -44,21 +53,46 @@
         "honorificPrefix": "Dr",
         "jobTitle": "A-level Physics Tutor",
         "description": "Oxford First and Imperial College PhD physicist. Teaches intensive online A-level Physics revision and exam preparation courses in small groups, covering all major UK exam boards.",
-        "image": "https://physicsandmathscourses.com/images/anthony-korte.jpg",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://physicsandmathscourses.com/images/anthony-korte.jpg",
+          "contentUrl": "https://physicsandmathscourses.com/images/anthony-korte.jpg",
+          "width": 800,
+          "height": 800,
+          "caption": "Dr Anthony Korte — A-level Physics Tutor"
+        },
         "url": "https://physicsandmathscourses.com",
         "sameAs": [
-          "https://uk.linkedin.com/in/anthony-korte-1066b559",
+          "https://www.linkedin.com/in/anthony-korte-1066b559",
           "https://twitter.com/PhysMathCourses"
         ],
+        "affiliation": {
+          "@id": "https://physicsandmathscourses.com/#organization"
+        },
         "alumniOf": [
           {"@type": "CollegeOrUniversity", "name": "University of Oxford"},
           {"@type": "CollegeOrUniversity", "name": "University College London"},
           {"@type": "CollegeOrUniversity", "name": "Imperial College London"}
         ],
         "hasCredential": [
-          "First Class degree in Physics, University of Oxford",
-          "MSc with Distinction in Mathematical Modelling, University College London",
-          "PhD in Theoretical Physics, Imperial College London"
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "First Class degree in Physics",
+            "credentialCategory": "degree",
+            "recognizedBy": {"@type": "CollegeOrUniversity", "name": "University of Oxford"}
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "MSc with Distinction in Mathematical Modelling",
+            "credentialCategory": "degree",
+            "recognizedBy": {"@type": "CollegeOrUniversity", "name": "University College London"}
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "PhD in Theoretical Physics",
+            "credentialCategory": "degree",
+            "recognizedBy": {"@type": "CollegeOrUniversity", "name": "Imperial College London"}
+          }
         ],
         "award": [
           "2nd Place Overall in Oxford Physics Entrance Examinations (worldwide)",
@@ -73,29 +107,33 @@
       },
       {
         "@type": "Course",
+        "@id": "https://physicscourses.co.uk/#course",
         "name": "Online A-level Physics Revision Course",
         "description": "Intensive online A-level Physics revision and exam preparation. Small group tuition covering AQA, OCR A, OCR B, Edexcel, and WJEC Eduqas.",
-        "provider": {
-          "@type": "Person",
-          "@id": "https://physicsandmathscourses.com/#anthony-korte",
-          "name": "Dr Anthony Korte"
-        },
+        "provider": {"@id": "https://physicsandmathscourses.com/#organization"},
+        "instructor": {"@id": "https://physicsandmathscourses.com/#anthony-korte"},
         "courseMode": "online",
+        "inLanguage": "en-GB",
         "educationalLevel": "A-level",
+        "image": "https://physicsandmathscourses.com/images/anthony-korte.jpg",
         "url": "https://physicscourses.co.uk/",
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "4.6",
           "reviewCount": "17",
           "bestRating": "5",
-          "worstRating": "1",
-          "url": "https://uk.trustpilot.com/review/physicsandmathscourses.com"
+          "worstRating": "1"
         },
         "hasCourseInstance": [
           {
             "@type": "CourseInstance",
-            "name": "Easter A-level Physics Intensive",
+            "name": "Easter A-level Physics Intensive 2026",
             "courseMode": "online",
+            "startDate": "2026-04-07",
+            "endDate": "2026-04-10",
+            "location": {"@type": "VirtualLocation", "url": "https://zoom.us"},
+            "instructor": {"@id": "https://physicsandmathscourses.com/#anthony-korte"},
+            "organizer": {"@id": "https://physicsandmathscourses.com/#organization"},
             "offers": {
               "@type": "Offer",
               "price": "295",
@@ -110,6 +148,9 @@
             "courseMode": "online",
             "startDate": "2026-08-21",
             "endDate": "2026-08-22",
+            "location": {"@type": "VirtualLocation", "url": "https://zoom.us"},
+            "instructor": {"@id": "https://physicsandmathscourses.com/#anthony-korte"},
+            "organizer": {"@id": "https://physicsandmathscourses.com/#organization"},
             "offers": {
               "@type": "Offer",
               "price": "165",
@@ -124,6 +165,9 @@
             "courseMode": "online",
             "startDate": "2026-12-28",
             "endDate": "2026-12-29",
+            "location": {"@type": "VirtualLocation", "url": "https://zoom.us"},
+            "instructor": {"@id": "https://physicsandmathscourses.com/#anthony-korte"},
+            "organizer": {"@id": "https://physicsandmathscourses.com/#organization"},
             "offers": {
               "@type": "Offer",
               "price": "165",
@@ -136,12 +180,14 @@
       },
       {
         "@type": "EducationalOrganization",
+        "@id": "https://physicscourses.co.uk/#organization",
         "name": "Physics Courses",
         "url": "https://physicscourses.co.uk",
         "sameAs": "https://physicsandmathscourses.com"
       },
       {
         "@type": "FAQPage",
+        "@id": "https://physicscourses.co.uk/#faqpage",
         "mainEntity": [
           {
             "@type": "Question",
