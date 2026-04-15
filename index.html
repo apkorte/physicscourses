@@ -197,829 +197,409 @@
   }
   </script>
 
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand:      '#0077bb',
+            'brand-dk': '#005d94',
+            navy:       '#0a1428',
+            ink:        '#1a1a2e',
+            'ink-mid':  '#3d3d58',
+            'ink-muted':'#6b6b88',
+            rule:       '#e0e0ec',
+            wash:       '#f4f5f9',
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
-    /* ── Reset ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; color-scheme: light; }
+    body { font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; }
+    a { text-decoration: none; }
 
-    /* ── Design tokens ── */
-    :root {
-      --brand:        #0077bb;
-      --brand-dark:   #005d94;
-      --ink:          #1a1a2e;
-      --ink-mid:      #3d3d58;
-      --ink-muted:    #6b6b88;
-      --rule:         #e0e0ec;
-      --bg:           #ffffff;
-      --bg-wash:      #f4f5f9;
-      --font:         "Helvetica Neue", Helvetica, Arial, sans-serif;
-      --prose:        680px;
-      --wide:         980px;
-    }
-
-    html {
-      font-size: 16px;
-      -webkit-text-size-adjust: 100%;
-      color-scheme: light;
-    }
-
-    body {
-      -webkit-text-size-adjust: 100%;
-      text-size-adjust: 100%;
-      font-family: var(--font);
-      font-weight: 400;
-      color: var(--ink);
-      background: var(--bg);
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ── Animations ── */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(22px); }
-      to   { opacity: 1; transform: translateY(0);    }
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
+    .a1 { animation: fadeUp 0.65s cubic-bezier(0.22,1,0.36,1) 0.05s both; }
+    .a2 { animation: fadeUp 0.65s cubic-bezier(0.22,1,0.36,1) 0.20s both; }
+    .a3 { animation: fadeUp 0.65s cubic-bezier(0.22,1,0.36,1) 0.35s both; }
+    .a4 { animation: fadeUp 0.65s cubic-bezier(0.22,1,0.36,1) 0.48s both; }
 
-    .a1 { animation: fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) both; animation-delay: 0.05s; }
-    .a2 { animation: fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) both; animation-delay: 0.2s;  }
-    .a3 { animation: fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) both; animation-delay: 0.35s; }
-    .a4 { animation: fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) both; animation-delay: 0.48s; }
-
-    /* ── Layout ── */
-    .wrap {
-      width: 100%;
-      max-width: var(--prose);
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    .wrap--wide {
-      max-width: var(--wide);
-    }
-
-    /* ── Brand rule ── */
-    .brand-bar {
-      height: 4px;
-      background: var(--brand);
-    }
-
-    /* ────────────────────────────────────────
-       HEADER
-    ──────────────────────────────────────── */
-    header {
-      background: var(--bg);
-      border-bottom: 1px solid var(--rule);
-      padding: 1rem 0;
-    }
-
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .site-name {
-      font-size: 0.68rem;
-      font-weight: 800;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--brand);
-      text-decoration: none;
-    }
-
-    .site-name:hover { color: var(--brand-dark); }
-
-    .header-book {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      color: var(--brand);
-      text-decoration: none;
-      border: 1.5px solid var(--brand);
-      padding: 0.32rem 0.85rem;
-      border-radius: 2px;
-      transition: background 0.15s, color 0.15s;
-    }
-
-    .header-book:hover {
-      background: var(--brand);
-      color: #fff;
-    }
-
-    /* ────────────────────────────────────────
-       HERO
-    ──────────────────────────────────────── */
-    .hero {
-      background-image:
-        linear-gradient(rgba(10, 20, 50, 0.68), rgba(10, 20, 50, 0.68)),
-        url('hero.jpeg');
+    .hero-bg {
+      background-image: linear-gradient(rgba(10,20,50,0.70), rgba(10,20,50,0.70)), url('hero.jpeg');
       background-size: cover;
       background-position: center;
-      min-height: 60vh;
-      padding: 5.5rem 0 5rem;
-      position: relative;
-      display: flex;
-      align-items: center;
     }
 
-    .hero > .wrap {
-      position: relative;
-      width: 100%;
-    }
-
-    .hero__kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-size: 0.65rem !important;
-      font-weight: 800;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.65);
-      margin-bottom: 1.4rem;
-    }
-
-    .hero__kicker::before {
-      content: '';
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--brand);
-      flex-shrink: 0;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.15rem, 6.5vw, 3.25rem);
-      font-weight: 800;
-      line-height: 1.08;
-      letter-spacing: -0.03em;
-      color: #fff;
-      margin-bottom: 1.3rem;
-      max-width: 600px;
-    }
-
-    .hero h1 .dim {
-      color: rgba(255,255,255,0.6);
-      font-weight: 700;
-    }
-
-    .hero__sub {
-      font-size: 18px;
-      font-weight: 400;
-      color: rgba(255,255,255,0.78);
-      line-height: 1.72;
-      max-width: 460px;
-      margin-bottom: 2.6rem;
-    }
-
-    /* Inverted white button in hero */
-    .btn-hero {
-      display: inline-block;
-      background: #fff;
-      color: var(--brand);
-      font-family: var(--font);
-      font-size: 0.8rem;
-      font-weight: 800;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      padding: 0.85rem 2rem;
-      border-radius: 2px;
-      text-decoration: none;
-      transition: background 0.15s, color 0.15s, transform 0.12s;
-    }
-
-    .btn-hero:hover {
-      background: var(--ink);
-      color: #fff;
-      transform: translateY(-2px);
-    }
-
-    .btn-hero:focus-visible {
-      outline: 3px solid rgba(255,255,255,0.7);
-      outline-offset: 3px;
-    }
-
-    /* ────────────────────────────────────────
-       CREDENTIALS
-    ──────────────────────────────────────── */
-    .credentials {
-      background: var(--ink);
-      padding: 4.5rem 0;
-    }
-
-    .credentials .label {
-      color: var(--brand);
-    }
-
-    .credentials h2 {
-      font-size: clamp(1.6rem, 4vw, 2.1rem);
-      font-weight: 800;
-      letter-spacing: -0.025em;
-      line-height: 1.15;
-      color: #fff;
-      margin-bottom: 1.75rem;
-    }
-
-    .cred-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-      margin-bottom: 2rem;
-    }
-
-    .cred-list li {
-      display: grid;
-      grid-template-columns: 28px 1fr;
-      align-items: start;
-      gap: 0.75rem;
-      font-size: 18px;
-      line-height: 1.5;
-      color: rgba(255,255,255,0.55);
-    }
-
-    .cred-list li::before {
-      content: '';
-      display: block;
-      width: 28px;
-      height: 2px;
-      background: var(--brand);
-      margin-top: 0.62em;
-      flex-shrink: 0;
-    }
-
-    .cred-list strong {
-      display: block;
-      color: #fff;
-      font-weight: 700;
-      font-size: 18px;
-    }
-
-    .cred-body {
-      font-size: 18px !important;
-      color: rgba(255, 255, 255, 0.9) !important;
-      line-height: 1.7;
-      max-width: 560px;
-      padding-top: 1.75rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
-    }
-
-    /* ────────────────────────────────────────
-       COURSE DETAILS
-    ──────────────────────────────────────── */
-    .courses {
-      background: var(--bg-wash);
-      padding: 4.5rem 0;
-    }
-
-    .courses h2 {
-      color: var(--ink);
-      margin-bottom: 2rem;
-    }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--rule);
-      border: 1px solid var(--rule);
-      border-radius: 4px;
-      overflow: hidden;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
-    }
-
-    .card {
-      background: var(--bg);
-      padding: 1.75rem 1.6rem;
-      position: relative;
-      transition: background 0.2s;
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--brand);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .card:hover::before {
-      transform: scaleX(1);
-    }
-
-    .card:hover {
-      background: #fafbff;
-    }
-
-    .card-label {
-      display: block;
-      font-size: 0.62rem;
-      font-weight: 800;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--brand);
-      margin-bottom: 0.65rem;
-    }
-
-    .card-value {
-      font-size: 18px;
-      color: var(--ink-mid);
-      line-height: 1.72;
-    }
-
-    .board-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 0.1rem;
-    }
-
-    .board-pill {
-      display: inline-flex;
-      align-items: center;
-      border: 1.5px solid var(--brand);
-      color: var(--brand);
-      border-radius: 999px;
-      padding: 4px 12px;
-      font-size: 0.78rem;
-      font-weight: 600;
-      line-height: 1;
-      white-space: nowrap;
-    }
-
-    /* ────────────────────────────────────────
-       FAQ
-    ──────────────────────────────────────── */
-    .faq {
-      background: var(--bg-wash);
-      padding: 4.5rem 0;
-    }
-
-    .faq h2 {
-      color: var(--ink);
-      margin-bottom: 2.5rem;
-    }
-
-    .faq-list {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .faq-item {
-      padding: 1.75rem 0;
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .faq-item:first-child {
-      border-top: 1px solid var(--rule);
-    }
-
-    .faq-q {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--ink);
-      line-height: 1.4;
-      margin-bottom: 0.65rem;
-    }
-
-    .faq-a {
-      font-size: 18px;
-      color: var(--ink-mid);
-      line-height: 1.7;
-      max-width: 620px;
-    }
-
-    /* ────────────────────────────────────────
-       SECONDARY CTA
-    ──────────────────────────────────────── */
-    .cta-band {
-      background-color: var(--brand);
-      background-image:
-        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-      background-size: 52px 52px;
-      padding: 3.25rem 0;
-    }
-
-    .cta-band__inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .cta-band__copy {
-      font-size: 18px;
-      color: rgba(255,255,255,0.78);
-      line-height: 1.6;
-    }
-
-    .cta-band__copy strong {
-      display: block;
-      font-size: 18px;
-      font-weight: 800;
-      color: #fff;
-      letter-spacing: -0.015em;
-      margin-bottom: 0.2rem;
-    }
-
-    .btn-outline {
-      display: inline-block;
-      background: transparent;
-      color: #fff;
-      border: 2px solid rgba(255,255,255,0.65);
-      font-family: var(--font);
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      padding: 0.8rem 1.65rem;
-      border-radius: 2px;
-      text-decoration: none;
-      white-space: nowrap;
-      transition: border-color 0.15s, background 0.15s;
-    }
-
-    .btn-outline:hover {
-      border-color: #fff;
-      background: rgba(255,255,255,0.1);
-    }
-
-    .btn-outline:focus-visible {
-      outline: 3px solid rgba(255,255,255,0.5);
-      outline-offset: 3px;
-    }
-
-    /* ────────────────────────────────────────
-       FOOTER
-    ──────────────────────────────────────── */
-    footer {
-      background: var(--ink);
-      padding: 1.4rem 0;
-      border-top: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      font-size: 0.875rem;
-      color: rgba(255,255,255,0.3);
-    }
-
-    .footer-inner a {
-      color: rgba(255,255,255,0.5);
-      text-decoration: none;
-      font-size: 0.875rem;
-      transition: color 0.15s;
-    }
-
-    .footer-inner a:hover {
-      color: rgba(255,255,255,0.85);
-    }
-
-    .footer-links {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.3);
-      padding-top: 0.6rem;
-      border-top: 1px solid rgba(255,255,255,0.06);
-      margin-top: 0.6rem;
-    }
-
-    .footer-links a {
-      color: rgba(255,255,255,0.4);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-
-    .footer-links a:hover {
-      color: rgba(255,255,255,0.75);
-    }
-
-    /* ────────────────────────────────────────
-       SHARED: section label
-    ──────────────────────────────────────── */
-    .label {
-      display: block;
-      font-size: 0.62rem;
-      font-weight: 800;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      margin-bottom: 0.8rem;
-    }
-
-    .courses .label {
-      color: var(--brand);
-    }
-
-    /* shared h2 */
-    h2 {
-      font-size: clamp(1.5rem, 3.5vw, 1.9rem);
-      font-weight: 800;
-      letter-spacing: -0.022em;
-      line-height: 1.15;
-    }
-
-    /* ────────────────────────────────────────
-       COURSES DETAIL
-    ──────────────────────────────────────── */
-    .courses-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.9rem;
-      margin-top: 1.75rem;
-      padding-top: 1.75rem;
-      border-top: 1px solid var(--rule);
-    }
-
-    .courses-list li {
-      display: grid;
-      grid-template-columns: 28px 1fr;
-      align-items: start;
-      gap: 0.75rem;
-      font-size: 18px;
-      line-height: 1.6;
-      color: var(--ink-mid);
-    }
-
-    .courses-list li::before {
-      content: '';
-      display: block;
-      width: 28px;
-      height: 2px;
-      background: var(--brand);
-      margin-top: 0.62em;
-      flex-shrink: 0;
-    }
-
-    /* ────────────────────────────────────────
-       TESTIMONIALS
-    ──────────────────────────────────────── */
-    .testimonials {
-      background: var(--bg);
-      padding: 4.5rem 0;
-      border-top: 1px solid var(--rule);
-    }
-
-    .testimonials h2 {
-      color: var(--ink);
-      margin-bottom: 2rem;
-    }
-
-    .testi-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-
-    .testi {
-      background: var(--bg-wash);
-      border-left: 3px solid var(--brand);
-      padding: 1.5rem;
-      margin: 0;
-    }
-
-    .testi__quote {
-      font-size: 1rem;
-      color: var(--ink-mid);
-      line-height: 1.6;
-      font-style: italic;
-      margin-bottom: 0.75rem;
-    }
-
-    .testi__attr {
-      font-size: 0.78rem !important;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      color: var(--ink-muted);
-    }
-
-    /* ────────────────────────────────────────
-       RESPONSIVE
-    ──────────────────────────────────────── */
-    @media (max-width: 600px) {
-      .hero { padding: 3.75rem 0 3.25rem; }
-      .hero::after { display: none; }
-
-      .card-grid { grid-template-columns: 1fr; }
-
-      .cta-band__inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+    /* Blue-rule list */
+    .rule-list { list-style: none; }
+    .rule-list li { display: grid; grid-template-columns: 28px 1fr; align-items: start; gap: 0.75rem; }
+    .rule-list li::before { content: ''; display: block; width: 28px; height: 2px; background: #0077bb; margin-top: 0.62em; flex-shrink: 0; }
 
-      .header-book { display: none; }
+    /* Subject card hover */
+    .subj-card { position: relative; transition: transform 0.2s, box-shadow 0.2s; }
+    .subj-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: #0077bb; transform: scaleX(0); transform-origin: left; transition: transform 0.25s cubic-bezier(0.22,1,0.36,1); }
+    .subj-card:hover::before { transform: scaleX(1); }
+    .subj-card:hover { transform: translateY(-3px); box-shadow: 0 10px 36px rgba(0,119,187,0.13); }
 
-      .testi-grid { grid-template-columns: 1fr; }
-
-      .hero__kicker {
-        letter-spacing: 0.08em;
-        font-size: 0.6rem !important;
-        white-space: nowrap;
-      }
-    }
-
-    @media (max-width: 380px) {
-      .hero h1 { letter-spacing: -0.02em; }
-    }
+    /* FAQ accordion */
+    .faq-answer { display: none; }
+    .faq-item.open .faq-answer { display: block; }
+    .faq-icon { display: inline-block; transition: transform 0.2s ease; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
 
-    @media screen and (orientation: portrait) and (max-width: 768px) {
-      html { font-size: 18px; }
+    /* CTA band */
+    .cta-band-bg {
+      background-color: #0077bb;
+      background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
     }
 
+    @media (max-width: 640px) { .hide-sm { display: none !important; } }
+    @media screen and (orientation: portrait) and (max-width: 768px) { html { font-size: 18px; } }
     @media screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 768px) {
       body { font-size: 20px; }
       p, li, dd, dt { font-size: 20px !important; }
     }
-
   </style>
 </head>
-<body>
+<body class="bg-white text-ink antialiased">
 
-  <div class="brand-bar" aria-hidden="true"></div>
+  <!-- Brand bar -->
+  <div class="h-[4px] bg-brand" aria-hidden="true"></div>
 
-  <header>
-    <div class="wrap wrap--wide">
-      <div class="header-inner">
-        <a class="site-name" href="https://physicscourses.co.uk/">Physics Courses</a>
-        <a class="header-book" href="https://physicsandmathscourses.com/book-a-course/a-level-physics-revision-courses.html" target="_blank" rel="noopener noreferrer">Book a place</a>
-      </div>
+  <!-- Header -->
+  <header class="bg-white border-b border-rule sticky top-0 z-50">
+    <div class="max-w-[980px] mx-auto px-6 py-3.5 flex items-center justify-between">
+      <a href="https://physicscourses.co.uk/"
+         class="text-[0.68rem] font-extrabold tracking-[0.22em] uppercase text-brand hover:text-brand-dk transition-colors">
+        Physics Courses
+      </a>
+      <a href="https://physicsandmathscourses.com/book-a-course/a-level-physics-revision-courses.html"
+         target="_blank" rel="noopener noreferrer"
+         class="hide-sm text-[0.72rem] font-bold tracking-wide border-[1.5px] border-brand text-brand px-3.5 py-1.5 rounded-sm hover:bg-brand hover:text-white transition-colors">
+        Book a place
+      </a>
     </div>
   </header>
 
   <main>
 
-    <!-- ── Hero ── -->
-    <section class="hero">
-      <div class="wrap">
-        <p class="hero__kicker a1">Online &middot; Small Groups &middot; UK A-level</p>
-        <h1 class="a2">Online A-level Physics Revision Courses</h1>
-        <p class="hero__sub a3">Intensive online A-level Physics revision and exam preparation. Expert tuition from an Oxford and Imperial-trained physicist, in small groups.</p>
-        <a class="btn-hero a4" href="https://physicsandmathscourses.com/book-a-course/a-level-physics-revision-courses.html" target="_blank" rel="noopener noreferrer">View Courses &amp; Book</a>
+    <!-- Hero -->
+    <section class="hero-bg min-h-[62vh] flex items-center py-20 sm:py-24">
+      <div class="max-w-[680px] mx-auto px-6 w-full">
+        <p class="a1 flex items-center gap-2.5 text-[0.65rem] font-extrabold tracking-[0.22em] uppercase text-white/60 mb-5">
+          <span class="block w-6 h-[2px] bg-brand flex-shrink-0"></span>
+          Online &middot; Small Groups &middot; UK A-level
+        </p>
+        <h1 class="a2 text-[clamp(2.15rem,6.5vw,3.25rem)] font-bold text-white leading-[1.08] tracking-tight mb-5 max-w-[600px]">
+          Online A-level Physics<br>Revision Courses
+        </h1>
+        <p class="a3 text-[18px] text-white/75 leading-[1.72] max-w-[460px] mb-9">
+          Intensive online A-level Physics revision and exam preparation. Expert tuition from an Oxford and Imperial-trained physicist, in small groups.
+        </p>
+        <a class="a4 inline-block bg-white text-brand text-[0.8rem] font-extrabold tracking-[0.07em] uppercase px-8 py-[0.85rem] rounded-sm hover:bg-navy hover:text-white transition-colors"
+           href="https://physicsandmathscourses.com/book-a-course/a-level-physics-revision-courses.html"
+           target="_blank" rel="noopener noreferrer">
+          View Courses &amp; Book
+        </a>
+        <div class="a4 mt-9 flex flex-wrap gap-x-4 gap-y-2 text-[0.72rem] tracking-wider text-white/40">
+          <span>&#9733; 4.6/5 Trustpilot</span>
+          <span class="text-white/20">&middot;</span>
+          <span>Oxford First</span>
+          <span class="text-white/20">&middot;</span>
+          <span>UCL MSc</span>
+          <span class="text-white/20">&middot;</span>
+          <span>Imperial PhD</span>
+        </div>
       </div>
     </section>
 
-    <!-- ── Credentials ── -->
-    <section class="credentials">
-      <div class="wrap">
-        <span class="label" style="color: var(--brand);">About the tutor</span>
-        <h2>Dr&nbsp;Anthony Korte</h2>
-        <ul class="cred-list">
+    <!-- Credentials -->
+    <section class="bg-navy py-20">
+      <div class="max-w-[680px] mx-auto px-6">
+        <span class="block text-[0.62rem] font-extrabold tracking-[0.22em] uppercase text-brand mb-3">About the tutor</span>
+        <h2 class="text-[clamp(1.6rem,4vw,2.1rem)] font-bold text-white tracking-tight leading-tight mb-7">Dr&nbsp;Anthony Korte</h2>
+        <ul class="rule-list space-y-3 mb-8">
           <li>
-            <span><strong>First Class degree in Physics</strong>University of Oxford</span>
+            <span class="text-[18px] leading-snug text-white/55">
+              <strong class="block text-white font-bold text-[18px]">First Class degree in Physics</strong>
+              University of Oxford
+            </span>
           </li>
           <li>
-            <span><strong>MSc with Distinction in Mathematical Modelling</strong>University College London</span>
+            <span class="text-[18px] leading-snug text-white/55">
+              <strong class="block text-white font-bold text-[18px]">MSc with Distinction in Mathematical Modelling</strong>
+              University College London
+            </span>
           </li>
           <li>
-            <span><strong>PhD in Theoretical Physics</strong>Imperial College London</span>
+            <span class="text-[18px] leading-snug text-white/55">
+              <strong class="block text-white font-bold text-[18px]">PhD in Theoretical Physics</strong>
+              Imperial College London
+            </span>
           </li>
         </ul>
-        <p class="cred-body">
+        <p class="text-[18px] text-white/85 leading-[1.7] pt-7 border-t border-white/10">
           Dr Korte brings first-hand experience of physics and mathematics at the highest academic level, and is a Member of the Institute of Physics (MInstP). His intensive physics revision courses are built around genuine subject understanding &mdash; not just exam technique &mdash; giving students the depth of knowledge to tackle any question with confidence.
         </p>
       </div>
     </section>
 
-    <!-- ── Course details ── -->
-    <section class="courses">
-      <div class="wrap">
-        <span class="label">Course details</span>
-        <h2>Intensive Revision Courses</h2>
-        <div class="card-grid">
-          <div class="card">
-            <span class="card-label">Subjects</span>
-            <p class="card-value">
-              A-level Physics<br>
-              A-level Mathematics<br>
-              A-level Further Mathematics
-            </p>
-          </div>
-          <div class="card">
-            <span class="card-label">Format</span>
-            <p class="card-value">
-              Small group tuition<br>
-              Online via Zoom
-            </p>
-          </div>
-          <div class="card">
-            <span class="card-label">Dates &amp; Pricing</span>
-            <p class="card-value">
-              Easter (April) &mdash; from &pound;295<br>
-              Summer (August) &mdash; &pound;165<br>
-              Christmas (December) &mdash; &pound;95&ndash;&pound;165
-            </p>
-          </div>
-          <div class="card">
-            <span class="card-label">Physics exam boards covered</span>
-            <div class="board-list">
-              <span class="board-pill">AQA</span>
-              <span class="board-pill">OCR A</span>
-              <span class="board-pill">OCR B</span>
-              <span class="board-pill">Edexcel</span>
-              <span class="board-pill">WJEC Eduqas</span>
+    <!-- Courses -->
+    <section class="bg-wash py-20">
+      <div class="max-w-[980px] mx-auto px-6">
+        <span class="block text-[0.62rem] font-extrabold tracking-[0.22em] uppercase text-brand mb-3">Course details</span>
+        <h2 class="text-[clamp(1.5rem,3.5vw,1.9rem)] font-bold tracking-tight leading-tight mb-10 text-ink">Intensive Revision Courses</h2>
+
+        <!-- Per-subject cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
+
+          <!-- Physics -->
+          <div class="subj-card bg-white rounded-sm shadow-sm overflow-hidden p-7">
+            <span class="block text-[0.58rem] font-extrabold tracking-[0.2em] uppercase text-brand mb-2">A-level</span>
+            <h3 class="text-xl font-bold text-ink mb-5">Physics</h3>
+            <div class="space-y-2 text-[15px] text-ink-mid mb-5 pb-5 border-b border-rule">
+              <div class="flex justify-between items-baseline">
+                <span>Easter (April)</span><span class="font-semibold text-ink">from &pound;295</span>
+              </div>
+              <div class="flex justify-between items-baseline">
+                <span>Summer (August)</span><span class="font-semibold text-ink">&pound;165</span>
+              </div>
+              <div class="flex justify-between items-baseline">
+                <span>Christmas (December)</span><span class="font-semibold text-ink">&pound;165</span>
+              </div>
             </div>
+            <div class="flex flex-wrap gap-1.5 mb-5">
+              <span class="text-[0.72rem] font-semibold text-brand border border-brand/40 px-2.5 py-0.5 rounded-full">AQA</span>
+              <span class="text-[0.72rem] font-semibold text-brand border border-brand/40 px-2.5 py-0.5 rounded-full">OCR A</span>
+              <span class="text-[0.72rem] font-semibold text-brand border border-brand/40 px-2.5 py-0.5 rounded-full">OCR B</span>
+              <span class="text-[0.72rem] font-semibold text-brand border border-brand/40 px-2.5 py-0.5 rounded-full">Edexcel</span>
+              <span class="text-[0.72rem] font-semibold text-brand border border-brand/40 px-2.5 py-0.5 rounded-full">WJEC</span>
+            </div>
+            <a href="https://physicsandmathscourses.com/book-a-course/a-level-physics-revision-courses.html"
+               target="_blank" rel="noopener noreferrer"
+               class="block text-center text-[0.78rem] font-bold tracking-wider uppercase bg-brand text-white px-4 py-2.5 rounded-sm hover:bg-brand-dk transition-colors">
+              Book Physics &rarr;
+            </a>
           </div>
+
+          <!-- Maths -->
+          <div class="subj-card bg-white rounded-sm shadow-sm overflow-hidden p-7">
+            <span class="block text-[0.58rem] font-extrabold tracking-[0.2em] uppercase text-brand mb-2">A-level</span>
+            <h3 class="text-xl font-bold text-ink mb-5">Mathematics</h3>
+            <div class="space-y-2 text-[15px] text-ink-mid mb-5 pb-5 border-b border-rule">
+              <div class="flex justify-between items-baseline">
+                <span>Easter (April)</span><span class="font-semibold text-ink">from &pound;295</span>
+              </div>
+              <div class="flex justify-between items-baseline">
+                <span>Summer (August)</span><span class="font-semibold text-ink">&pound;165</span>
+              </div>
+              <div class="flex justify-between items-baseline">
+                <span>Christmas (December)</span><span class="font-semibold text-ink">&pound;165</span>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-1.5 mb-5">
+              <span class="text-[0.72rem] font-semibold text-brand border border-brand/40 px-2.5 py-0.5 rounded-full">Edexcel</span>
+              <span class="text-[0.72rem] font-semibold text-brand border border-brand/40 px-2.5 py-0.5 rounded-full">AQA</span>
+              <span class="text-[0.72rem] font-semibold text-brand border border-brand/40 px-2.5 py-0.5 rounded-full">OCR A</span>
+              <span class="text-[0.72rem] font-semibold text-brand border border-brand/40 px-2.5 py-0.5 rounded-full">OCR B</span>
+            </div>
+            <a href="https://physicsandmathscourses.com/book-a-course/a-level-maths-revision-courses.html"
+               target="_blank" rel="noopener noreferrer"
+               class="block text-center text-[0.78rem] font-bold tracking-wider uppercase bg-brand text-white px-4 py-2.5 rounded-sm hover:bg-brand-dk transition-colors">
+              Book Maths &rarr;
+            </a>
+          </div>
+
+          <!-- Further Maths -->
+          <div class="subj-card bg-white rounded-sm shadow-sm overflow-hidden p-7">
+            <span class="block text-[0.58rem] font-extrabold tracking-[0.2em] uppercase text-brand mb-2">A-level</span>
+            <h3 class="text-xl font-bold text-ink mb-5">Further Maths</h3>
+            <div class="space-y-2 text-[15px] text-ink-mid mb-5 pb-5 border-b border-rule">
+              <div class="flex justify-between items-baseline">
+                <span>Easter only (annual)</span><span class="font-semibold text-ink">from &pound;125</span>
+              </div>
+              <div class="flex justify-between items-baseline">
+                <span>2-day course</span><span class="font-semibold text-ink">&pound;195</span>
+              </div>
+              <div class="flex justify-between items-baseline">
+                <span>1-day course</span><span class="font-semibold text-ink">&pound;125</span>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-1.5 mb-5">
+              <span class="text-[0.72rem] font-semibold text-brand border border-brand/40 px-2.5 py-0.5 rounded-full">Edexcel</span>
+              <span class="text-[0.72rem] font-semibold text-brand border border-brand/40 px-2.5 py-0.5 rounded-full">AQA</span>
+              <span class="text-[0.72rem] font-semibold text-brand border border-brand/40 px-2.5 py-0.5 rounded-full">OCR A</span>
+              <span class="text-[0.72rem] font-semibold text-brand border border-brand/40 px-2.5 py-0.5 rounded-full">OCR B</span>
+            </div>
+            <a href="https://physicsandmathscourses.com/book-a-course/a-level-further-maths-revision-courses.html"
+               target="_blank" rel="noopener noreferrer"
+               class="block text-center text-[0.78rem] font-bold tracking-wider uppercase bg-brand text-white px-4 py-2.5 rounded-sm hover:bg-brand-dk transition-colors">
+              Book Further Maths &rarr;
+            </a>
+          </div>
+
         </div>
-        <ul class="courses-list">
-          <li><span>Courses cover the complete A-level Physics syllabus.</span></li>
-          <li><span>Year&nbsp;1 topics include mechanics, electricity, waves and quantum physics.</span></li>
-          <li><span>Year&nbsp;2 extends to gravitational and electric fields, capacitors, oscillations, thermal physics, radioactivity and nuclear physics.</span></li>
-          <li><span>All students receive downloadable worksheets, fully worked solutions and exam questions matched to their specific exam board.</span></li>
+
+        <!-- Syllabus bullets -->
+        <ul class="rule-list space-y-3.5 pt-7 border-t border-rule">
+          <li><span class="text-[18px] text-ink-mid leading-relaxed">Courses cover the complete A-level Physics syllabus.</span></li>
+          <li><span class="text-[18px] text-ink-mid leading-relaxed">Year&nbsp;1 topics include mechanics, electricity, waves and quantum physics.</span></li>
+          <li><span class="text-[18px] text-ink-mid leading-relaxed">Year&nbsp;2 extends to gravitational and electric fields, capacitors, oscillations, thermal physics, radioactivity and nuclear physics.</span></li>
+          <li><span class="text-[18px] text-ink-mid leading-relaxed">All students receive downloadable worksheets, fully worked solutions and exam questions matched to their specific exam board.</span></li>
         </ul>
       </div>
     </section>
 
-    <!-- ── Testimonials ── -->
-    <section class="testimonials">
-      <div class="wrap">
-        <span class="label" style="color: var(--brand);">Student outcomes</span>
-        <h2>What students and parents say</h2>
-        <div class="testi-grid">
-          <blockquote class="testi">
-            <p class="testi__quote">&ldquo;A* in physics and maths &mdash; couldn&rsquo;t have done it without you.&rdquo;</p>
-            <p class="testi__attr">Inara F., student &mdash; 2024</p>
+    <!-- Testimonials -->
+    <section class="bg-white py-20 border-t border-rule">
+      <div class="max-w-[680px] mx-auto px-6">
+        <span class="block text-[0.62rem] font-extrabold tracking-[0.22em] uppercase text-brand mb-3">Student outcomes</span>
+        <h2 class="text-[clamp(1.5rem,3.5vw,1.9rem)] font-bold tracking-tight leading-tight mb-8 text-ink">What students and parents say</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+          <blockquote class="bg-wash border-l-[3px] border-brand p-6 m-0">
+            <p class="text-base text-ink-mid italic leading-relaxed mb-3">&ldquo;A* in physics and maths &mdash; couldn&rsquo;t have done it without you.&rdquo;</p>
+            <p class="text-[0.78rem] font-bold tracking-wide text-ink-muted">Inara F., student &mdash; 2024</p>
           </blockquote>
-          <blockquote class="testi">
-            <p class="testi__quote">&ldquo;He got As in his physics and maths, which meant he got his first choice of university.&rdquo;</p>
-            <p class="testi__attr">Parent &mdash; 2024</p>
+          <blockquote class="bg-wash border-l-[3px] border-brand p-6 m-0">
+            <p class="text-base text-ink-mid italic leading-relaxed mb-3">&ldquo;He got As in his physics and maths, which meant he got his first choice of university.&rdquo;</p>
+            <p class="text-[0.78rem] font-bold tracking-wide text-ink-muted">Parent &mdash; 2024</p>
           </blockquote>
-          <blockquote class="testi">
-            <p class="testi__quote">&ldquo;From an E to a B &mdash; four marks off an A.&rdquo;</p>
-            <p class="testi__attr">Student &mdash; 2019</p>
+          <blockquote class="bg-wash border-l-[3px] border-brand p-6 m-0">
+            <p class="text-base text-ink-mid italic leading-relaxed mb-3">&ldquo;From an E to a B &mdash; four marks off an A.&rdquo;</p>
+            <p class="text-[0.78rem] font-bold tracking-wide text-ink-muted">Student &mdash; 2019</p>
           </blockquote>
         </div>
+        <p class="mt-6 text-center text-[0.9rem] text-ink-muted">
+          Read more reviews on <a href="https://uk.trustpilot.com/review/physicsandmathscourses.com" target="_blank" rel="noopener noreferrer" class="text-brand hover:text-brand-dk transition-colors">Trustpilot</a>
+        </p>
       </div>
     </section>
 
-    <!-- ── FAQ ── -->
-    <section class="faq">
-      <div class="wrap">
-        <span class="label" style="color: var(--brand);">Frequently asked questions</span>
-        <h2>Physics Revision &mdash; Common Questions</h2>
-        <div class="faq-list">
-          <div class="faq-item">
-            <h3 class="faq-q">What is an A-level Physics revision course?</h3>
-            <p class="faq-a">An A-level Physics revision course is an intensive online programme designed for Physics exam preparation — consolidating syllabus understanding and building exam technique ahead of A-level examinations. Dr&nbsp;Korte's courses cover the full content in small groups, with targeted support for AQA, OCR, Edexcel and WJEC Eduqas students.</p>
+    <!-- FAQ -->
+    <section class="bg-wash py-20">
+      <div class="max-w-[680px] mx-auto px-6">
+        <span class="block text-[0.62rem] font-extrabold tracking-[0.22em] uppercase text-brand mb-3">Frequently asked questions</span>
+        <h2 class="text-[clamp(1.5rem,3.5vw,1.9rem)] font-bold tracking-tight leading-tight mb-9 text-ink">Physics Revision &mdash; Common Questions</h2>
+        <div class="divide-y divide-rule border-t border-rule">
+
+          <div class="faq-item py-5">
+            <button class="faq-toggle w-full flex items-start justify-between gap-4 text-left bg-transparent border-0 p-0 cursor-pointer">
+              <h3 class="text-[1rem] font-bold text-ink leading-snug">What is an A-level Physics revision course?</h3>
+              <span class="faq-icon text-brand text-xl font-light leading-none mt-0.5 flex-shrink-0">+</span>
+            </button>
+            <div class="faq-answer pt-3 pr-8">
+              <p class="text-[18px] text-ink-mid leading-[1.7] max-w-[620px]">An A-level Physics revision course is an intensive online programme designed for Physics exam preparation &mdash; consolidating syllabus understanding and building exam technique ahead of A-level examinations. Dr&nbsp;Korte's courses cover the full content in small groups, with targeted support for AQA, OCR, Edexcel and WJEC Eduqas students.</p>
+            </div>
           </div>
-          <div class="faq-item">
-            <h3 class="faq-q">Which exam boards do you cover?</h3>
-            <p class="faq-a">Courses cover all major UK A-level Physics exam boards: AQA, OCR A, OCR B (Advancing Physics), Edexcel, and WJEC Eduqas.</p>
+
+          <div class="faq-item py-5">
+            <button class="faq-toggle w-full flex items-start justify-between gap-4 text-left bg-transparent border-0 p-0 cursor-pointer">
+              <h3 class="text-[1rem] font-bold text-ink leading-snug">Which exam boards do you cover?</h3>
+              <span class="faq-icon text-brand text-xl font-light leading-none mt-0.5 flex-shrink-0">+</span>
+            </button>
+            <div class="faq-answer pt-3 pr-8">
+              <p class="text-[18px] text-ink-mid leading-[1.7] max-w-[620px]">Courses cover all major UK A-level Physics exam boards: AQA, OCR A, OCR B (Advancing Physics), Edexcel, and WJEC Eduqas.</p>
+            </div>
           </div>
-          <div class="faq-item">
-            <h3 class="faq-q">How does online Physics tuition work?</h3>
-            <p class="faq-a">Sessions run live via Zoom in small groups. Dr&nbsp;Korte teaches using shared digital materials, works through problems in real time, and tailors explanations to the questions that arise. Students need only a device with internet access.</p>
+
+          <div class="faq-item py-5">
+            <button class="faq-toggle w-full flex items-start justify-between gap-4 text-left bg-transparent border-0 p-0 cursor-pointer">
+              <h3 class="text-[1rem] font-bold text-ink leading-snug">How does online Physics tuition work?</h3>
+              <span class="faq-icon text-brand text-xl font-light leading-none mt-0.5 flex-shrink-0">+</span>
+            </button>
+            <div class="faq-answer pt-3 pr-8">
+              <p class="text-[18px] text-ink-mid leading-[1.7] max-w-[620px]">Sessions run live via Zoom in small groups. Dr&nbsp;Korte teaches using shared digital materials, works through problems in real time, and tailors explanations to the questions that arise. Students need only a device with internet access.</p>
+            </div>
           </div>
-          <div class="faq-item">
-            <h3 class="faq-q">When are the Easter, Christmas and summer Physics revision courses?</h3>
-            <p class="faq-a">Easter intensive courses run during the Easter school holiday period in April — ideal for final exam preparation before the summer exams. Christmas intensive courses run between Christmas and New Year, giving Year&nbsp;12 students a head start on their second term and Year&nbsp;13 students early exam preparation. Summer intensive courses run in August ahead of resit examinations or Year&nbsp;12 progression. Exact dates and booking are at physicsandmathscourses.com.</p>
+
+          <div class="faq-item py-5">
+            <button class="faq-toggle w-full flex items-start justify-between gap-4 text-left bg-transparent border-0 p-0 cursor-pointer">
+              <h3 class="text-[1rem] font-bold text-ink leading-snug">When are the Easter, Christmas and summer Physics revision courses?</h3>
+              <span class="faq-icon text-brand text-xl font-light leading-none mt-0.5 flex-shrink-0">+</span>
+            </button>
+            <div class="faq-answer pt-3 pr-8">
+              <p class="text-[18px] text-ink-mid leading-[1.7] max-w-[620px]">Easter intensive courses run during the Easter school holiday period in April &mdash; ideal for final exam preparation before the summer exams. Christmas intensive courses run between Christmas and New Year, giving Year&nbsp;12 students a head start on their second term and Year&nbsp;13 students early exam preparation. Summer intensive courses run in August ahead of resit examinations or Year&nbsp;12 progression. Exact dates and booking are at physicsandmathscourses.com.</p>
+            </div>
           </div>
-          <div class="faq-item">
-            <h3 class="faq-q">What makes these Physics courses different?</h3>
-            <p class="faq-a">Dr&nbsp;Korte holds a First Class degree in Physics from Oxford, an MSc with Distinction in Mathematical Modelling from UCL, and a PhD in Theoretical Physics from Imperial College London. Courses are built around deep subject understanding rather than surface exam technique, giving students the foundation to answer any question with confidence.</p>
+
+          <div class="faq-item py-5">
+            <button class="faq-toggle w-full flex items-start justify-between gap-4 text-left bg-transparent border-0 p-0 cursor-pointer">
+              <h3 class="text-[1rem] font-bold text-ink leading-snug">What makes these Physics courses different?</h3>
+              <span class="faq-icon text-brand text-xl font-light leading-none mt-0.5 flex-shrink-0">+</span>
+            </button>
+            <div class="faq-answer pt-3 pr-8">
+              <p class="text-[18px] text-ink-mid leading-[1.7] max-w-[620px]">Dr&nbsp;Korte holds a First Class degree in Physics from Oxford, an MSc with Distinction in Mathematical Modelling from UCL, and a PhD in Theoretical Physics from Imperial College London. Courses are built around deep subject understanding rather than surface exam technique, giving students the foundation to answer any question with confidence.</p>
+            </div>
           </div>
-          <div class="faq-item">
-            <h3 class="faq-q">Is the course suitable for Year 12 and Year 13?</h3>
-            <p class="faq-a">Yes. Courses are available for both Year&nbsp;12 students consolidating their first year and Year&nbsp;13 students preparing for final A-level examinations. Course content is tailored to the specific year group and exam board of each cohort.</p>
+
+          <div class="faq-item py-5">
+            <button class="faq-toggle w-full flex items-start justify-between gap-4 text-left bg-transparent border-0 p-0 cursor-pointer">
+              <h3 class="text-[1rem] font-bold text-ink leading-snug">Is the course suitable for Year 12 and Year 13?</h3>
+              <span class="faq-icon text-brand text-xl font-light leading-none mt-0.5 flex-shrink-0">+</span>
+            </button>
+            <div class="faq-answer pt-3 pr-8">
+              <p class="text-[18px] text-ink-mid leading-[1.7] max-w-[620px]">Yes. Courses are available for both Year&nbsp;12 students consolidating their first year and Year&nbsp;13 students preparing for final A-level examinations. Course content is tailored to the specific year group and exam board of each cohort.</p>
+            </div>
           </div>
+
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- ── Secondary CTA ── -->
-  <div class="cta-band">
-    <div class="wrap wrap--wide">
-      <div class="cta-band__inner">
-        <p class="cta-band__copy">
-          <strong>Ready to book a place?</strong>
-          Full details, course dates and pricing at the main site.
-        </p>
-        <a class="btn-outline" href="https://physicsandmathscourses.com/book-a-course/a-level-physics-revision-courses.html" target="_blank" rel="noopener noreferrer">See dates, prices &amp; booking &rarr;</a>
-      </div>
+  <!-- Secondary CTA -->
+  <div class="cta-band-bg py-14">
+    <div class="max-w-[980px] mx-auto px-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 flex-wrap">
+      <p class="text-[18px] text-white/75 leading-relaxed">
+        <strong class="block text-white font-extrabold text-[18px] mb-1">Ready to book a place?</strong>
+        Full details, course dates and pricing at the main site.
+      </p>
+      <a href="https://physicsandmathscourses.com/book-a-course/a-level-physics-revision-courses.html"
+         target="_blank" rel="noopener noreferrer"
+         class="inline-block bg-transparent text-white border-2 border-white/65 text-[0.78rem] font-extrabold tracking-[0.07em] uppercase px-7 py-3 rounded-sm hover:border-white hover:bg-white/10 transition-colors whitespace-nowrap">
+        See dates, prices &amp; booking &rarr;
+      </a>
     </div>
   </div>
 
-  <footer>
-    <div class="wrap wrap--wide">
-      <div class="footer-inner">
-        <span>&copy; 2026 Physics Courses &mdash; <a href="https://physicsandmathscourses.com" target="_blank" rel="noopener noreferrer">physicsandmathscourses.com</a></span>
-        <a href="https://physicsandmathscourses.com/our-services/privacy-policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+  <footer class="bg-ink border-t border-white/[0.06] py-5">
+    <div class="max-w-[980px] mx-auto px-6">
+      <div class="flex flex-wrap items-center justify-between gap-2 text-[0.875rem] text-white/30">
+        <span>&copy; 2026 Physics Courses &mdash; <a href="https://physicsandmathscourses.com" target="_blank" rel="noopener noreferrer" class="text-white/50 hover:text-white/85 transition-colors">physicsandmathscourses.com</a></span>
+        <a href="https://physicsandmathscourses.com/our-services/privacy-policy.html" target="_blank" rel="noopener noreferrer" class="text-white/50 hover:text-white/85 transition-colors text-[0.875rem]">Privacy Policy</a>
       </div>
-      <div class="footer-links">
-        A-level Maths courses: <a href="https://alevelmathsonline.co.uk" target="_blank" rel="noopener noreferrer">alevelmathsonline.co.uk</a>
+      <div class="text-[0.8rem] text-white/30 pt-2.5 border-t border-white/[0.06] mt-2.5">
+        A-level Maths courses: <a href="https://alevelmathsonline.co.uk" target="_blank" rel="noopener noreferrer" class="text-white/40 hover:text-white/75 transition-colors">alevelmathsonline.co.uk</a>
         &nbsp;&middot;&nbsp;
-        ESAT &amp; Oxford PAT preparation: <a href="https://oxfordpat.co.uk" target="_blank" rel="noopener noreferrer">oxfordpat.co.uk</a>
+        ESAT &amp; Oxford PAT preparation: <a href="https://oxfordpat.co.uk" target="_blank" rel="noopener noreferrer" class="text-white/40 hover:text-white/75 transition-colors">oxfordpat.co.uk</a>
       </div>
     </div>
   </footer>
+
+  <script>
+    document.querySelectorAll('.faq-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.closest('.faq-item').classList.toggle('open');
+      });
+    });
+  </script>
 
 </body>
 </html>
