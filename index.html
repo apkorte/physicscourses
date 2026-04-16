@@ -295,6 +295,7 @@
     .rule-list { list-style: none; }
     .rule-list li { display: grid; grid-template-columns: 28px 1fr; align-items: start; gap: 0.75rem; }
     .rule-list li::before { content: ''; display: block; width: 28px; height: 2px; background: #0077bb; margin-top: 0.62em; flex-shrink: 0; }
+    .bg-brand .rule-list li::before { background: #ffffff; }
 
     /* Subject card hover */
     .subj-card { position: relative; transition: transform 0.2s, box-shadow 0.2s; }
@@ -376,31 +377,31 @@
     </section>
 
     <!-- Credentials -->
-    <section class="bg-navy py-20">
+    <section class="bg-brand py-20">
       <div class="max-w-[680px] mx-auto px-6">
-        <span class="block text-[0.62rem] font-extrabold tracking-[0.22em] uppercase text-brand mb-3">About the tutor</span>
+        <span class="block text-[0.62rem] font-extrabold tracking-[0.22em] uppercase text-white mb-3">About the tutor</span>
         <h2 class="text-[clamp(1.6rem,4vw,2.1rem)] font-bold text-white tracking-tight leading-tight mb-7">Dr&nbsp;Anthony Korte</h2>
         <ul class="rule-list space-y-3 mb-8">
           <li>
-            <span class="text-[18px] leading-snug text-white/55">
+            <span class="text-[18px] leading-snug text-white">
               <strong class="block text-white font-bold text-[18px]">First Class degree in Physics</strong>
               University of Oxford
             </span>
           </li>
           <li>
-            <span class="text-[18px] leading-snug text-white/55">
+            <span class="text-[18px] leading-snug text-white">
               <strong class="block text-white font-bold text-[18px]">MSc with Distinction in Mathematical Modelling</strong>
               University College London
             </span>
           </li>
           <li>
-            <span class="text-[18px] leading-snug text-white/55">
+            <span class="text-[18px] leading-snug text-white">
               <strong class="block text-white font-bold text-[18px]">PhD in Theoretical Physics</strong>
               Imperial College London
             </span>
           </li>
         </ul>
-        <p class="text-[18px] text-white/85 leading-[1.7] pt-7 border-t border-white/10">
+        <p class="text-[18px] text-white leading-[1.7] pt-7 border-t border-white/20">
           Dr Korte brings first-hand experience of physics and mathematics at the highest academic level, and is a Member of the Institute of Physics (MInstP). His intensive physics revision courses are built around genuine subject understanding &mdash; not just exam technique &mdash; giving students the depth of knowledge to tackle any question with confidence.
         </p>
       </div>
